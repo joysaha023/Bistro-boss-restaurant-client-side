@@ -7,6 +7,7 @@ const Banner = () => {
     <Carousel 
         autoPlay={true}
         infiniteLoop={true}
+        
     >
       <div>
         <img src="https://i.ibb.co/Z14NDH5/01.jpg" />
