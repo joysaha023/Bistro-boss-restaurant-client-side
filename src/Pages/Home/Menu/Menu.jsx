@@ -7,6 +7,11 @@ const Menu = () => {
         <div>
             <Coverd title={"Our Menu"} img={"https://i.ibb.co/5BzXC2T/banner3.jpg"}></Coverd>
             <PopularMenu></PopularMenu>
+            <Coverd title={"Our Menu"} img={"https://i.ibb.co/5BzXC2T/banner3.jpg"}></Coverd>
+            <PopularMenu></PopularMenu>
+            <Coverd title={"Our Menu"} img={"https://i.ibb.co/5BzXC2T/banner3.jpg"}></Coverd>
+            <PopularMenu></PopularMenu>
+           
         </div>
     );
 };
