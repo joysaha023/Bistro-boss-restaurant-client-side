@@ -24,9 +24,9 @@ const Menu = () => {
             {/* offer */}
             <MenuCategory items={offered}></MenuCategory>
             {/* desert */}
-            <MenuCategory items={dessert} title={"Desert"} coverImg={"https://i.ibb.co/MV1pFVB/dessert-bg.jpg"}></MenuCategory>
-            <MenuCategory items={pizza} title={"Pizza"} coverImg={"https://i.postimg.cc/NFmkQy3w/pia-bg.jpg"}></MenuCategory>
-            <MenuCategory items={salad} title={"Salad"} coverImg={"https://i.postimg.cc/8k6HR3jn/salad-bg.jpg"}></MenuCategory>
+            <MenuCategory items={dessert} title={"dessert"} coverImg={"https://i.ibb.co/MV1pFVB/dessert-bg.jpg"}></MenuCategory>
+            <MenuCategory items={pizza} title={"pizza"} coverImg={"https://i.postimg.cc/NFmkQy3w/pia-bg.jpg"}></MenuCategory>
+            <MenuCategory items={salad} title={"salad"} coverImg={"https://i.postimg.cc/8k6HR3jn/salad-bg.jpg"}></MenuCategory>
         </div>
     );
 };
