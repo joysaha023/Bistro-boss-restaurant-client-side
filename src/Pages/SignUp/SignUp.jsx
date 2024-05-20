@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -11,6 +13,10 @@ const SignUp = () => {
 
   const onSubmit = data => {
     console.log(data)
+    createUser(data.email, data.password)
+    .then(result => {
+        console.log(result.user)
+    })
   }
 
   return (
@@ -60,16 +66,18 @@ const SignUp = () => {
               <input
                 type="password"
                 name="password"
-                {...register("password", { required: true, minLength: 6, maxLength: 20 })}
+                {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })}
                 placeholder="password"
                 className="input input-bordered"
               />
               {errors.password?.type === 'required' && <span>This field is required</span>}
               {errors.password?.type === 'minLength' && <span>This field 6 charecter required</span>}
               {errors.password?.type === 'maxLength' && <span>This field 20 charecter required</span>}
+              {errors.password?.type === 'pattern' && <span>This field regex required</span>}
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+                <input type="submit" className="btn btn-primary" value="Sign Up" />
+             
             </div>
           </form>
         </div>

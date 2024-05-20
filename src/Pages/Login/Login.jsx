@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const captchaRef = useRef(null);
@@ -17,15 +18,33 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
+        console.log(email, password)
         signIn(email, password)
         .then(result => {
             const user = result.user;
             console.log(user)
+            Swal.fire({
+                title: "Successfully Login",
+                showClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `
+                },
+                hideClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `
+                }
+              });
         })
     }
 
-    const handleCaptcha = () => {
-        const user_captcha_value = captchaRef.current.value;
+    const handleCaptcha = (e) => {
+        const user_captcha_value = e.target.value;
         if(validateCaptcha(user_captcha_value)){
             setDisabled(false);
         } else {
@@ -83,12 +102,12 @@ const Login = () => {
                 <input
                   type="text"
                   name="captcha"
-                  ref={captchaRef}
+                  onChange={handleCaptcha} 
                   placeholder="write captcha here"
                   className="input input-bordered"
                   required
                 />
-                <button onClick={handleCaptcha} className="btn btn-outline btn-xs mt-2">Validate</button>
+                <button className="btn btn-outline btn-xs mt-2">Validate</button>
               </div>
               <div className="form-control mt-6">
                 <button disabled={disabled} className="btn btn-primary">Login</button>
