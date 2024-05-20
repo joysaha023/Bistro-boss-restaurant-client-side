@@ -28,7 +28,7 @@ const Navbar = () => {
             <Link to={"/order/salad"}>Our Shop</Link>
           </li>
           <li>
-            <Link to={"/login"}>Login</Link>
+            <Link to={"/secret"}>Secret</Link>
           </li>
           <li>
             <Link to={"/signup"}>SignUp</Link>

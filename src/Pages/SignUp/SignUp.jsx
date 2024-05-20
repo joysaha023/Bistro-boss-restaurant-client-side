@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserProfile} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -16,6 +17,13 @@ const SignUp = () => {
     createUser(data.email, data.password)
     .then(result => {
         console.log(result.user)
+        updateUserProfile(data.name, data.photourl)
+        .then(() => {
+            console.log('user profile updated')
+            reset()
+            Swal.fire("Sign up successfully");
+        })
+        .catch(error => console.log(error))
     })
   }
 
@@ -45,6 +53,20 @@ const SignUp = () => {
                
               />
                {errors.name && <span>This field is required</span>}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                name="photourl"
+                {...register("photourl", { required: true } )}
+                placeholder="Photo URL"
+                className="input input-bordered"
+               
+              />
+               {errors.photourl && <span>This PHoto URL is required</span>}
             </div>
             <div className="form-control">
               <label className="label">
