@@ -110,12 +110,13 @@ const Login = () => {
                   onBlur={handleCaptcha} 
                   placeholder="write captcha here"
                   className="input input-bordered"
-                  required
+                  
                 />
          
               </div>
               <div className="form-control mt-6">
-                <button disabled={disabled} className="btn btn-primary">Login</button>
+                {/* TODO: apply disabled for rechapcha */}
+                <button disabled={false} className="btn btn-primary">Login</button>
               </div>
               <p><small>New Here? <Link to={'/signup'}>Create an account </Link></small></p>
             </form>
