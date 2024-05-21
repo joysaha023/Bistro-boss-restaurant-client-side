@@ -8,14 +8,18 @@ import {
   QueryClient,
   QueryClientProvider,
   useQuery,
-} from '@tanstack/react-query'
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <div className="mx-auto">
-        <RouterProvider router={router} />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="mx-auto">
+          <RouterProvider router={router} />
+        </div>
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 );
