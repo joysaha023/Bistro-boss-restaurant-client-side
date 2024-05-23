@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHome } from "react-icons/fa";
-import { FaBars, FaCalendar, FaCalendarCheck, FaCartPlus } from "react-icons/fa6";
+import { FaBars, FaCalendar, FaCalendarCheck, FaCartPlus, FaEnvelope, FaPhone } from "react-icons/fa6";
 import { MdRateReview } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import useCarts from "../Hooks/useCarts";
@@ -34,6 +34,9 @@ const [cart] = useCarts();
           </li>
           <li>
             <NavLink to="/order/salad"><FaBars /> Menu</NavLink>
+          </li>
+          <li>
+            <NavLink to="/order/salad"><FaEnvelope /> Contact</NavLink>
           </li>
         </ul>
       </div>
