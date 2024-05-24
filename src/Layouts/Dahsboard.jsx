@@ -12,12 +12,13 @@ import {
 import { MdRateReview } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import useCarts from "../Hooks/useCarts";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dahsboard = () => {
   const [cart] = useCarts();
 
   //Todo : get admin value forom the database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex">
