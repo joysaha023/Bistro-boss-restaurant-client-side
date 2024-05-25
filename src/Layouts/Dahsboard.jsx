@@ -19,7 +19,7 @@ const Dahsboard = () => {
 
   //Todo : get admin value forom the database
   const [isAdmin] = useAdmin();
-
+  console.log(isAdmin)
   return (
     <div className="flex">
       {/* dashboard side bar */}
@@ -27,13 +27,13 @@ const Dahsboard = () => {
         <ul className="menu p-4">
           {isAdmin ? (
             <>
-               <li>
+              <li>
                 <NavLink to="/dashboard/adminhome">
                   <FaHome /> Admin Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/additems">
+                <NavLink to="/dashboard/addItems">
                   <FaUtensils /> Add Items
                 </NavLink>
               </li>
@@ -86,22 +86,32 @@ const Dahsboard = () => {
           )}
 
           {/* Shared Navlink */}
-          <li>
-            <NavLink to="/dashboard/userhome"><FaHome /> User Home</NavLink>
+          {/* <li>
+            <NavLink to="/dashboard/userhome">
+              <FaHome /> User Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/reservation"><FaCalendar /> Reservation</NavLink>
+            <NavLink to="/dashboard/reservation">
+              <FaCalendar /> Reservation
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/cart"><FaCartPlus /> My Cart ({cart.length})</NavLink>
+            <NavLink to="/dashboard/cart">
+              <FaCartPlus /> My Cart ({cart.length})
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/review"><MdRateReview /> Review</NavLink>
+            <NavLink to="/dashboard/review">
+              <MdRateReview /> Review
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/mybookings"><FaCalendarCheck /> My Bookings</NavLink>
+            <NavLink to="/dashboard/mybookings">
+              <FaCalendarCheck /> My Bookings
+            </NavLink>
           </li>
-          <div className="divider"></div>
+          <div className="divider"></div> */}
           <li>
             <NavLink to="/">
               <FaHome /> Home
